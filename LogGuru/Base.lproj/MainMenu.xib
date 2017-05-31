@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="filterField" destination="2GM-cc-Xrx" id="Ibf-Q0-a52"/>
                 <outlet property="logView" destination="gOg-YT-kSR" id="1UU-zK-Zx5"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -493,22 +495,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="809" height="588"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" findBarPosition="aboveHorizontalRuler" id="aKM-bT-G1E">
-                        <rect key="frame" x="-1" y="-1" width="811" height="513"/>
+                    <scrollView misplaced="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" findBarPosition="aboveHorizontalRuler" id="aKM-bT-G1E">
+                        <rect key="frame" x="-1" y="-1" width="811" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Srs-La-U9Q">
-                            <rect key="frame" x="1" y="1" width="223" height="133"/>
+                            <rect key="frame" x="1" y="1" width="809" height="490"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" selectionGranularity="paragraph" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="gOg-YT-kSR">
-                                    <rect key="frame" x="0.0" y="0.0" width="809" height="511"/>
+                                <textView editable="NO" importsGraphics="NO" selectionGranularity="paragraph" findStyle="panel" allowsUndo="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="gOg-YT-kSR">
+                                    <rect key="frame" x="0.0" y="0.0" width="809" height="490"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="223" height="511"/>
+                                    <size key="minSize" width="809" height="490"/>
                                     <size key="maxSize" width="811" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="223" height="511"/>
-                                    <size key="maxSize" width="811" height="10000000"/>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,10 +518,19 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="37d-Em-qrj">
-                            <rect key="frame" x="794" y="1" width="16" height="511"/>
+                            <rect key="frame" x="794" y="1" width="16" height="490"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <searchField wantsLayer="YES" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="2GM-cc-Xrx">
+                        <rect key="frame" x="-1" y="490" width="810" height="22"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Xk3-58-v5I">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </searchFieldCell>
+                    </searchField>
                 </subviews>
             </view>
             <toolbar key="toolbar" implicitIdentifier="462DC66A-2EEB-41AD-91FA-188A5A3573FB" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Enw-Wv-5wT">
@@ -557,7 +566,7 @@
     </objects>
     <resources>
         <image name="NSInfo" width="32" height="32"/>
-        <image name="NSPauseTemplate" width="128" height="128"/>
+        <image name="NSPauseTemplate" width="8" height="9"/>
         <image name="NSTrashEmpty" width="32" height="32"/>
     </resources>
 </document>

@@ -26,6 +26,8 @@
 @property(assign) BOOL showDate;
 @property(assign) BOOL paused;
 
+@property (weak) IBOutlet NSSearchField *filterField; //过滤
+
 @end
 
 @implementation AppDelegate
@@ -63,6 +65,15 @@
     
     if ([self.blockProcesses containsObject:logInfo.process]) {
         return;
+    }
+    
+    if ([self.filterField.stringValue length] > 0) {
+        NSString *filterString = self.filterField.stringValue.lowercaseString;
+        if ([logInfo.log.lowercaseString rangeOfString:filterString].location == NSNotFound) {
+            if ([logInfo.process.lowercaseString rangeOfString:filterString].location == NSNotFound) {
+                return;
+            }
+        }
     }
     
     if ([logInfo.process isEqualToString:@"syslog_relay"]) {
